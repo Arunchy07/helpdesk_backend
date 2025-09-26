@@ -110,28 +110,6 @@ celery -A <project_name> beat -l info
 ```
 
 ---
-
-## 📖 API Documentation
-After running server, visit:  
-👉 [http://127.0.0.1:8000/api/schema/swagger/](http://127.0.0.1:8000/api/docs) 
-👉 [http://127.0.0.1:8000/api/schema/redoc/](http://127.0.0.1:8000/api) 
-
-## 📌 Reporting (Bonus)
-Example:  
-```http
-GET /api/reports/last7days/
-```
-Response:
-```json
-{
-  "opened": 12,
-  "resolved": 8,
-  "escalated": 3
-}
-```
-
----
-
 ## 📬 Contact
 **Author:** Arun Singh  
 **Email:** chyarun727@gmail.com  
