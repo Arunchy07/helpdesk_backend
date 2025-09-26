@@ -61,7 +61,7 @@ This project demonstrates **authentication, ticket management, escalation alerts
 - **Django** (Backend framework)  
 - **Django REST Framework (DRF)** (API development)  
 - **Celery + Redis** (Async task queue, escalations & alerts)  
-- **SQLite / PostgreSQL** (Database)  
+- **SQLite** (Database)  
 - **Swagger / drf-spectacular** (API Documentation)  
 
 ---
@@ -113,29 +113,8 @@ celery -A <project_name> beat -l info
 
 ## 📖 API Documentation
 After running server, visit:  
-👉 [http://127.0.0.1:8000/api/schema/swagger/](http://127.0.0.1:8000/api/schema/swagger/) (Swagger UI)  
-👉 [http://127.0.0.1:8000/api/schema/redoc/](http://127.0.0.1:8000/api/schema/redoc/) (ReDoc)  
-
----
-
-## 📊 Example Endpoints
-
-### 🔐 Auth
-- `POST /api/auth/register/`
-- `POST /api/auth/login/`
-- `POST /api/auth/logout/`
-
-### 🎫 Tickets
-- `POST /api/tickets/` → Create ticket  
-- `GET /api/tickets/` → List own tickets  
-- `PATCH /api/tickets/{id}/` → Update ticket  
-- `DELETE /api/tickets/{id}/` → Delete ticket (Admin only)  
-
-### 🔍 Search
-- `GET /api/tickets/?status=open&priority=high`  
-- `GET /api/users/?search=john`  
-
----
+👉 [http://127.0.0.1:8000/api/schema/swagger/](http://127.0.0.1:8000/api/docs) 
+👉 [http://127.0.0.1:8000/api/schema/redoc/](http://127.0.0.1:8000/api) 
 
 ## 📌 Reporting (Bonus)
 Example:  
