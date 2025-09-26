@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELPDESK System - Backend API</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #7209b7;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: var(--dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+        }
+        
+        .endpoints {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .endpoint-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .endpoint-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .endpoint-method {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .get { background: #e7f4e4; color: #2e7d32; }
+        .post { background: #e3f2fd; color: #1565c0; }
+        .put { background: #fff3e0; color: #ef6c00; }
+        .delete { background: #ffebee; color: #c62828; }
+        
+        .endpoint-path {
+            font-family: monospace;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            word-break: break-all;
+        }
+        
+        .endpoint-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--success);
+        }
+        
+        .info-box h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(67, 97, 238, 0.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--light);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .endpoints {
+                grid-template-columns: 1fr;
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HELPDESK System</h1>
+            <p class="subtitle">Welcome to the Backend API for our Helpdesk Management System</p>
+        </header>
+        
+        <div class="content">
+            <div class="info-box">
+                <h3>API Status: Running</h3>
+                <p>Your Django backend server is successfully running. This page provides an overview of available API endpoints and documentation.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Available Endpoints</h2>
+                <div class="endpoints">
+                    <div class="endpoint-card">
+                        <span class="endpoint-method get">GET</span>
+                        <div class="endpoint-path">/api/</div>
+                        <p class="endpoint-description">Main API endpoint</p>
+                    </div>
+                    
+                    <div class="endpoint-card">
+                        <span class="endpoint-method get">GET</span>
+                        <div class="endpoint-path">/api/auth/</div>
+                        <p class="endpoint-description">Authentication endpoints</p>
+                    </div>
+                    
+                    <div class="endpoint-card">
+                        <span class="endpoint-method get">GET</span>
+                        <div class="endpoint-path">/api/schema/</div>
+                        <p class="endpoint-description">API Schema documentation</p>
+                    </div>
+                    
+                    <div class="endpoint-card">
+                        <span class="endpoint-method get">GET</span>
+                        <div class="endpoint-path">/api/docs/</div>
+                        <p class="endpoint-description">Interactive API documentation (Swagger UI)</p>
+                    </div>
+                    
+                    <div class="endpoint-card">
+                        <span class="endpoint-method get">GET</span>
+                        <div class="endpoint-path">/api/redoc/</div>
+                        <p class="endpoint-description">Alternative API documentation (ReDoc)</p>
+                    </div>
+                    
+                    <div class="endpoint-card">
+                        <span class="endpoint-method get">GET</span>
+                        <div class="endpoint-path">/admin/</div>
+                        <p class="endpoint-description">Django admin interface</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Quick Actions</h2>
+                <div class="actions">
+                    <a href="/api/docs/" class="btn btn-primary">View API Documentation</a>
+                    <a href="/admin/" class="btn btn-secondary">Access Admin Panel</a>
+                    <a href="/api/" class="btn btn-secondary">Explore API</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>HELPDESK System Backend API &copy; 2025 | Built with Django</p>
+        </footer>
+    </div>
+</body>
+</html>
